@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{% block content %}
+<div class="container">
+ {% if profile %}
+ 
+ <div class="row" style="padding:20px">
+  {% for prof in profile %}
+   <div class="col-md-4">
+     <img class="center-block img-responsive img-circle" src="{{prof.profile_picture.url}}" alt="" style="width:200px; height:250px">
+   </div>
+   <div class="col-md-8">
+     <h1><strong>{{prof.user.username}}</strong></h1>
+     <h3>{{prof.bio}}</h3>
+     <h3>{{prof.phone}}</h3>
+     <a class="btn btn-sm btn-primary" href="{% url 'update_profile' %}"> Update Profile</a>
+   </div>
+   {% endfor %}
+ </div>
+ <div class="row">
+   {% for img in image %}
+   <div class="col-md-2"></div>
+   <div class="col-md-8">
+     <img style="width:900px;height:600px;" src="{{img.image.url}}">
+     <p>{{img.title}}</p>
+     <p>{{img.caption}}</p>
+   
+   </div>
+   <div class="col-md-2"></div>
+   {% endfor %}
+   
+ </div>
+ {% else %}
+ <div class="card">
+   <div class="card-header">
+   </div>
+   <div class="card-body" styles="width:50px;">
+     <h3 class="card-text">complete your profile</h3>
+     <a class="btn btn-sm btn-primary" href="{% url 'update_profile' %}"> complete Profile</a>
+   </div>
+ </div>
+ {% endif %}
+</div>
+
+
+{% endblock %}

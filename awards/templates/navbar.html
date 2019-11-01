@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'index' %}">Home</a>&nbsp;&nbsp;
+  <a class="navbar-brand" href="{% url 'projects' %}">NEW PROJECT</a>&nbsp;&nbsp;
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+      <form class="form-inline my-2 my-lg-0" style="margin-left: 400px;" action="{% url 'search' %}">
+        <input class="form-control mr-sm-2" name='title' type="search" placeholder="Search Project" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        {% if request.user.profile.profile_picture %}
+        <a class="nav-link" href="/profile/">
+          <img src="{{user.profile.profile_picture.url }}" style="border-radius: 50%; width: 50px; height: 50px;"
+            id="prof">
+          {% else %}
+          <a href="#"><img
+              src="https://www.clipartwiki.com/clipimg/detail/149-1490051_computer-icons-user-profile-male-my-profile-icon.png"
+              style="border-radius: 50%; width: 50px; height: 50px;">{{user.username}}</a>
+
+          {% endif %}
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a style="color:black; font-family:serif;font-size: 20px; " href="{% url 'signup' %}">signup</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a style="color:black; font-family:serif;font-size: 20px; " href="/accounts/login/">Logout</a>
+      </li>
+    </ul>
+
+
+
+  </div>
+</nav>
+<p style="text-align: center;" id="p">The awards of design, creativity and innovation on the internet
+</p>
+<br>
+<h1 id="one" style="text-align: center;">AWARD</h1>
+<br>
+<hr style="margin-top: -30px;">
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Monoton|Staatliches&display=swap');
+
+  #one {
+    font-family: 'Staatliches', cursive;
+    font-family: 'Monoton', cursive;
+
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+
+  #p {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 300%;
+  }
+</style>

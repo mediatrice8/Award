@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container-fluid" id="two">
+
+</div>
+<hr>
+<div class="row">
+
+  {% for project in  projects %}
+  <!-- The slideshow -->
+  <div class="col-md-4">
+    <div>
+      <h2 class="card-title" style="margin-left:120px;" id="three">{{project.title}}</h2>
+      <a href="{%url 'profile' user.id %}">view profile</a>
+      <img src="{{project.image.url}}" alt="" height="200" width="380">
+      <a href="{{project.link}}" class="btn btn-primary">Views details</a>
+    </div>
+    <p><a href="{% url 'comment' project.id %}"
+        style="font-family: 'Courier New', Courier, monospace; color:rgba(100,0,62,0.8)">Leave
+        Comment</a></p>
+        {% for com in project.comment_set.all %}
+        <p>{{com.comments}}</p>
+        
+    {% endfor %}
+
+   
+  </div>
+  <br>
+  <br>
+  {% endfor %}
+</div>
+{% endblock %}
