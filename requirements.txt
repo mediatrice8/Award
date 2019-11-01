@@ -11,3 +11,10 @@ python-decouple==3.1
 pytz==2018.5
 whitenoise==4.0
 djangorestframework==3.9.4
+django-registration==2.4.1
+
+
+
+
+
+
