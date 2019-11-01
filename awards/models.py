@@ -50,3 +50,13 @@ class Profile(models.Model):
         
 
     
+class Comments(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    comment=models.TextField(max_length=200)
+    project=models.ForeignKey(Projects,related_name='comments',on_delete=models.CASCADE)
+    
+    def __str__(self):
+        self.user.username
+    
+    def save_comment(self):
+        self.save()
