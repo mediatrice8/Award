@@ -36,3 +36,17 @@ class Projects(models.Model):
        projects=cls.objects.all().prefetch_related('comment_set')
        return projects
     
+class Profile(models.Model):
+    profile_picture=models.ImageField(upload_to='profile/')
+    bio=models.CharField(max_length=60)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    phone=models.IntegerField()
+    
+    class Meta:
+        ordering=['-profile_picture']
+    def __str__(self):
+        self.user.username
+
+        
+
+    
