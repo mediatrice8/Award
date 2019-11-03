@@ -16,7 +16,13 @@
       <img src="{{project.image.url}}" alt="" height="200" width="380">
       <a href="{{project.link}}" class="btn btn-primary">Views details</a>
     </div>
- 
+    <p><a href="{% url 'comment' project.id %}"
+        style="font-family: 'Courier New', Courier, monospace; color:rgba(100,0,62,0.8)">Leave
+        Comment</a></p>
+        {% for com in projects.comment_set.all %}
+        <p>{{com.comments}}</p>
+        
+    {% endfor %}
 
  
   </div>
