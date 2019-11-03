@@ -7,15 +7,15 @@ from .models import *
 
 class ProfileTest(TestCase):
     def setUp(self):
-        self.new_user=User(username='jack',email='jane@gmail.com')
+        self.new_user=User(username='hono',email='hoza@gmail.com')
         self.new_user.save()
-        self.new_profile=Profile(user=self.new_user,phone="3456789",bio='software developer')
+        self.new_profile=Profile(user=self.new_user,phone="536382210",bio='developer')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_profile,Profile))
 
     def test_data(self):
-        self.assertTrue(self.new_profile.bio,"software developer")
+        self.assertTrue(self.new_profile.bio,"developer")
         self.assertTrue(self.new_profile.user,self.new_user)
 
     def test_save(self):
@@ -32,16 +32,16 @@ class ProfileTest(TestCase):
 
     def test_edit_profile(self):
         self.new_profile.save()
-        self.update_profile = Profile.objects.filter(bio='software developer').update(bio = 'web designer')
+        self.update_profile = Profile.objects.filter(bio='developer').update(bio = 'web designer')
         self.updated_profile = Profile.objects.get(bio='web designer')
         self.assertTrue(self.updated_profile.bio,'web designer')
         
         
 class projectsTest(TestCase):
     def setUp(self):
-        self.user=User(username='jack',email='jane@gmail.com')
+        self.user=User(username='hono',email='hoza@gmail.com')
         self.user.save()
-        self.new_profile=Profile(user=self.user,phone="3456789",bio='software developer')
+        self.new_profile=Profile(user=self.user,phone="536382210",bio='developer')
         self.new_profile.save()
         self.new_project = Projects(user=self.user,link="https://ig20.herokuapp.com/")
 
@@ -70,9 +70,9 @@ class projectsTest(TestCase):
 
 class CommentTest(TestCase):
     def setUp(self):
-        self.new_user=User(username='jack',email='jane@gmail.com')
+        self.new_user=User(username='hono',email='hoza@gmail.com')
         self.new_user.save()
-        self.new_profile=Profile(user=self.new_user,phone="3456789",bio='software developer')
+        self.new_profile=Profile(user=self.new_user,phone="536382210",bio='developer')
         self.new_profile.save()
         self.new_project = Projects(user=self.new_user,link='https://www.google.com')
         self.new_project.save()
