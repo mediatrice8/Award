@@ -8,16 +8,6 @@
       <h2> Found 0 projects for the search term {{message}}</h2>
     {% endif %}
   </div>
-  <div class="row">
-  {% if projects %}
-    {% for imag in projects %}
-      <div class="col-md-3">
-        <p>{{imag.title}}
-        </p>
-          <img style="width:120%;padding-top:20%;padding-left:20%" src="{{imag.image.url}}" alt="">
-      </div>
-    {% endfor %}
-  {% endif %}
-  </div>
+  
 </div>
 {% endblock %}
