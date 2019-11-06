@@ -13,6 +13,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import  Projects,Profile
 from .serializer import ProjectsSerializer,ProfileSerializer
+from django.contrib.auth import logout
+
 
 
 # Create your views here.
@@ -32,6 +34,9 @@ def signup(request):
             login(request,user)
             return redirect('/')
     return render(request,'registration/login.html',{"form":form})
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 @login_required(login_url='/account/login/')
 def index(request):
@@ -40,6 +45,7 @@ def index(request):
     except Exception as e:
         raise  Http404()
     return render(request,'index.html',{"projects":projects})
+
 @login_required(login_url='/account/login/')
 def projects(request):
         current_user = request.user
