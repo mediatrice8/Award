@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'',include('awards.urls')), 
     # url(r'^login/$', views.login, {"next_page": '/accounts/'}),
     url(r'^logout/$', views.LogoutView.as_view(), {"next_page": '/'}),
+    url(r'^tinymce',include('tinymce.urls')),
+
 ]
