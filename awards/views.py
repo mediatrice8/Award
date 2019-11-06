@@ -18,6 +18,7 @@ from django.contrib.auth import logout
 
 
 # Create your views here.
+@login_required(login_url='/account/login/')
 def signup(request):
     form = SignUpForm
     if request.method == 'POST':
