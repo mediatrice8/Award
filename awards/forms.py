@@ -35,26 +35,3 @@ class RateForm(forms.ModelForm):
     class Meta:
         model = Projects
         fields = ['design','usability','content']
-
-
-# rating_choices = [
-#     (1, '1'),
-#     (2, '2'),
-#     (3, '3'),
-#     (4, '4'),
-#     (5, '5'),
-#     (6, '6'),
-#     (7, '7'),
-#     (8, '8'),
-#     (9, '9'),
-#     (10, '10'),
-# ]
-
-# class Votes(forms.Form):
-#     design = forms.CharField(label='Design level', widget=forms.RadioSelect(choices=rating_choices))
-
-#     usability = forms.CharField(label='Usability level', widget=forms.RadioSelect(choices=rating_choices))
-
-#     creativity  = forms.CharField(label='Creativity level', widget=forms.RadioSelect(choices=rating_choices))
-
-#     content = forms.CharField(label='Content level', widget=forms.RadioSelect(choices=rating_choices))

@@ -10,7 +10,7 @@ class Projects(models.Model):
     title=models.CharField(max_length=30)
     description=models.TextField(max_length=320)
     link=models.URLField(max_length=60)
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='projects')
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     date=models.DateField(auto_now=True)
     image=models.ImageField(upload_to='image/',blank=True)
     design = models.IntegerField(choices=list(zip(range(0,11), range(0,11))), default=0)

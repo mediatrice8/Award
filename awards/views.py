@@ -33,25 +33,26 @@ def signup(request):
             return redirect('/')
     return render(request,'registration/login.html',{"form":form})
 
+@login_required(login_url='/account/login/')
 def index(request):
     try:
         projects=Projects.objects.all()
     except Exception as e:
         raise  Http404()
     return render(request,'index.html',{"projects":projects})
-
+@login_required(login_url='/account/login/')
 def projects(request):
         current_user = request.user
         if request.method == 'POST':
                 form = ProjectsForm(request.POST,request.FILES)
                 if form.is_valid():
                         project = form.save(commit=False)
-                        project.user = request.user
+                        project.user = current_user
                         project.save()
                 return redirect('index')
 
         else:
-                form=ProjectsForm()
+            form=ProjectsForm()
         return render(request,'project.html',{'form':form})
         
 

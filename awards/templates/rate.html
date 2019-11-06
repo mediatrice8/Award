@@ -1,4 +1,4 @@
-{% extends 'base.html' %
+{% extends 'base.html' %}
 {% load bootstrap3 %}
 {%load static%}
 {% load staticfiles %}
@@ -17,7 +17,6 @@
        <div class="col-md-4">Usability: <span>{{rate.usability}}</span></div>
        <div class="col-md-4">Content: <span>{{rate.content}}</span></div>
      </div>
-     <h3 style="margin:20px;">Average Score: <span>{{average_score}}</span></h3>
      <a href="" class="btn btn-success btn-rounded btn-block" data-toggle="modal"
      data-target="#{{rate.id}}">Vote</a>
    </div>
